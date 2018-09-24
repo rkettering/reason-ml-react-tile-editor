@@ -3,6 +3,12 @@ type state = {
   canvasRef: ref(option(Dom.element))
 };
 
+type rect = {
+	x: float,
+	y: float,
+	w: float,
+	h: float,
+}
 
 let component = ReasonReact.reducerComponent("CanvasThing");
 
@@ -15,8 +21,10 @@ let get_mouse_pos_for_action = ( event, ref ) => {
 	Js.log(event);
 
 
-	let bgRectSrc = Canvas.getBoundingClientRect(ref);
-	Js.log(bgRectSrc);
+	let bgRectSrc:Dom.domRect = Canvas.getBoundingClientRect(ref);
+	let bgRect:rect = { x: bgRectSrc.left, y: bgRectSrc.top, w: bgRectSrc.right - bgRectSrc.left, h: bgRectSrc.bottom - bgRectSrc.top };
+
+	Js.log(bgRect);
 	
 };
 
