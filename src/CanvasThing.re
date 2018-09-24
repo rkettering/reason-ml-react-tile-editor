@@ -10,15 +10,32 @@ let setCanvasRef = (theRef, {ReasonReact.state}) => {
 	state.canvasRef := Js.Nullable.toOption(theRef);
 };
 
+
+let get_mouse_pos_for_action = ( event, ref ) => {
+	Js.log(event);
+
+
+	let bgRectSrc = Canvas.getBoundingClientRect(ref);
+	Js.log(bgRectSrc);
+	
+};
+
+
+
 let make = (_children) => {
-	let handleClick = (_event, self: ReasonReact.self(state, ReasonReact.noRetainedProps, unit)) => {
-		Js.log(self.state);
+	let handleClick = (event, self: ReasonReact.self(state, ReasonReact.noRetainedProps, unit)) => {
+		/* Js.log(self.state); */
 
 		switch (self.state.canvasRef^) {
 			|	None => ()
-			|	Some(r) => Canvas.fillRect( Canvas.getContext( r ), 0.0, 0.0, 100.0, 100.0);
+			|	Some(r) => {
+					get_mouse_pos_for_action(event, r);
+					Canvas.fillRect( Canvas.getContext( r ), 0.0, 0.0, 100.0, 100.0);
+				}
 		};
 	};
+
+
 
 	{
 	...component,

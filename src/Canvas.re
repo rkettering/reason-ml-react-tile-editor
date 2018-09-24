@@ -5,10 +5,11 @@ type ctx = canvasRenderingContext2D;
 
 type canvasElement = Dom.element;
 
-[@bs.send]
-external getContext :
-  (canvasElement, [@bs.as "2d"] _) => canvasRenderingContext2D =
-  "getContext";
+	[@bs.send] external getBoundingClientRect : (canvasElement) => Dom.domRect = "getBoundingClientRect";
+
+	[@bs.send] external getContext :
+		(canvasElement, [@bs.as "2d"] _) => canvasRenderingContext2D =
+		"getContext";
 
   [@bs.get] external canvas : ctx => canvasElement = "";
 
