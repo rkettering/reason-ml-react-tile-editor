@@ -1,3 +1,4 @@
+/*open Webapi.Dom; */
 
 type canvasRenderingContext2D;
 
@@ -5,7 +6,7 @@ type ctx = canvasRenderingContext2D;
 
 type canvasElement = Dom.element;
 
-	[@bs.send] external getBoundingClientRect : (canvasElement) => Dom.domRect = "getBoundingClientRect";
+/*	[@bs.send] external getBoundingClientRect : (canvasElement) => D.DomRect = "getBoundingClientRect";*/
 
 	[@bs.send] external getContext :
 		(canvasElement, [@bs.as "2d"] _) => canvasRenderingContext2D =

@@ -13,10 +13,8 @@ function setCanvasRef(theRef, param) {
   return /* () */0;
 }
 
-function get_mouse_pos_for_action($$event, ref) {
+function get_mouse_pos_for_action($$event, _) {
   console.log($$event);
-  var bgRectSrc = ref.getBoundingClientRect();
-  console.log(bgRectSrc);
   return /* () */0;
 }
 
@@ -24,9 +22,8 @@ function make() {
   var handleClick = function ($$event, self) {
     var match = self[/* state */1][/* canvasRef */0][0];
     if (match !== undefined) {
-      var r = Js_primitive.valFromOption(match);
-      get_mouse_pos_for_action($$event, r);
-      r.getContext("2d").fillRect(0.0, 0.0, 100.0, 100.0);
+      console.log($$event);
+      Js_primitive.valFromOption(match).getContext("2d").fillRect(0.0, 0.0, 100.0, 100.0);
       return /* () */0;
     } else {
       return /* () */0;
