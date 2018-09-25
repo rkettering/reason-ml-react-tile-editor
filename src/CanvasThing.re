@@ -25,7 +25,12 @@ let get_mouse_pos_for_action = ( event, ref ) => {
 
 
 	let bgRectSrc = Webapi.Dom.Element.getBoundingClientRect(ref);
-	let bgRect:rect = { x: bgRectSrc.left, y: bgRectSrc.top, w: bgRectSrc.right - bgRectSrc.left, h: bgRectSrc.bottom - bgRectSrc.top };
+	let bgRect:rect = {
+						x: Webapi.Dom.DomRect.left(bgRectSrc),
+						y: Webapi.Dom.DomRect.top(bgRectSrc),
+						w: Webapi.Dom.DomRect.right(bgRectSrc) - Webapi.Dom.DomRect.left(bgRectSrc),
+						h: Webapi.Dom.DomRect.bottom(bgRectSrc) - Webapi.Dom.DomRect.top(bgRectSrc)
+					};
 
 	Js.log(bgRect);
 	
